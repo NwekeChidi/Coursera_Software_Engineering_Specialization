@@ -80,5 +80,5 @@ print("Image size: ", y, "x", x);
 
 
 
-// This an exercise from the Coursera Software Engineering Specialization
+// This is an exercise from the Coursera Software Engineering Specialization
 // link: https://www.coursera.org/learn/duke-programming-web/supplement/drrbY/try-it-using-variables-methods-and-functions
