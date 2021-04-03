@@ -30,7 +30,7 @@ function square(x){
 }
 
 var y = square(4);
-print(y);
+print("Square of 4 is: ", y);
 
 function cube(x){
     // function that calculates the cube of a given number
@@ -39,7 +39,7 @@ function cube(x){
 }
 
 var z = cube(4);
-print(z);
+print("Cube of 4 is: ", z);
 
 function addNumbers(x, y, z){
     // function that adds three numbers together
@@ -47,8 +47,8 @@ function addNumbers(x, y, z){
     return ans;
 }
 
-var x = addNumbers(4, 5, 6);
-print(x);
+var b = addNumbers(x, y, z);
+print("Sum of", x, y, "and", z, "is: ", b);
 
 function addStrings(x, y){
     // function that add two strings together
@@ -57,7 +57,7 @@ function addStrings(x, y){
 }
 
 var x = addStrings("boy", "girl");
-print(x);
+print("Concatinating strings 'boy' and 'girl' gives: ", x);
 
 function getHeight(image){
     var height = image.getHeight();
