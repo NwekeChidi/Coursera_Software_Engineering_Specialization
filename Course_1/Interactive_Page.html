@@ -1,0 +1,45 @@
+<!-- The following lines of code was written using https://www.codepen.io-->
+
+
+<h1 id="myHeader">TO DO List</h1>
+
+<!-- STEPs 1 and 2 below here  -->
+<input type="button" value="Add" onclick="addTask()">
+<input type="text" id="input" placeholder="Enter New Task">
+
+ <hr>
+
+<ul id="tasks">
+
+  <li>
+
+    <input type="button" class="done" onclick="markDone(this.parentNode)" value="&#x2713;" />
+
+    <input type="button" id="del1" class="remove" onclick="remove(this.parentNode)" value="&#x2715;" />
+    
+    <input type="button" class="important" onclick="important(this.parentNode)" value="&#x21;" />
+
+    make todo list
+
+  </li>
+
+ </ul>
+
+<hr>
+
+<hr>
+<!-- STEPs 8 and 9 below here  -->
+<div id="divabout">
+  <input type="button" value="About" onclick="doAbout()">
+</div>
+
+<div id="divabout">
+  <!-- STEP 13 below here  -->
+<input type="button" value="Clear" onclick="clearAbout()">
+</div>
+<hr>
+
+
+
+<p>This is an exercise from the Coursera Software Engineering 
+    Specialization: <a href="https://www.coursera.org/learn/duke-programming-web/home/welcome" target="blank_">Course 1</a></p>
