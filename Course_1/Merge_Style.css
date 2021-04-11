@@ -1,0 +1,24 @@
+
+
+
+h1 {
+  font-family: arial;
+  color: #339999
+}
+
+div {
+  width: 140pt;
+  padding: 5pt;
+  margin: 10pt;
+  border: 1px solid lightgray;
+  font-size: 16pt;
+  font-family: arial
+}
+
+.orangeback {
+  background-color: orange
+}
+
+.fuchsiaback {
+  background-color: fuchsia
+}
