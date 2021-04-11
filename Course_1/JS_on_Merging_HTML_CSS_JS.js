@@ -1,4 +1,4 @@
-// This code is written using the IDE developed by https://www.dukelearntoprogram.com//course1/example/index.php
+// The following lines of code was written using https://www.codepen.io
 
 
 function dochange() {
