@@ -1,0 +1,35 @@
+<!-- The following lines of code was written using https://www.codepen.io-->
+
+
+<script src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+
+<div id=headers>
+  <h1>Coursera MiniProject Challange</h1>
+  <h2>Upload and Filter Image</h2>
+</div>
+
+<canvas id="canvas"></canvas>
+
+<p><input type="file" multiple="false" accept="image/*" id="tinput" onchange="upload()"></p>
+<txt>Pick a Filter!</txt>
+<p><input type="button" value="Make Red" id="red" onclick="doRed()">
+  <input type="button" value="Make Blue" id="blue" onclick="doBlue()">
+  <input type="button" value="Make Green" id="green" onclick="doGreen()">
+  <input type="button" value="Vertical Rainbow" id="rainbow" onclick="doVRainbow()">
+  <input type="button" value="Horizontal Rainbow" id="rainbow" onclick="doHRainbow()">
+</p>
+<p><input type="button" value="Make Blur" id="blur" onclick="doBlur()">
+  <input type="button" value="Add Border" id="border" onclick="doBorder()">
+  <input type="button" value="Black Spots" id="spots" onclick="doSpots()">
+  <input type="button" value="GrayScale" id="gray" onclick="doGray()">
+  <input type="button" value="RGB Stripes" id="stripes" onclick="doStripes()">
+</p>
+
+<p>
+  <input type="button" value="Reset Image" id="reset" onclick="doReset()">
+  <input type="button" value="Clear Canvas" id="clear" onclick="clearCanvas()">
+</p>
+
+
+<p>This is an exercise from the Coursera Software Engineering 
+    Specialization: <a href="https://www.coursera.org/learn/duke-programming-web/home/welcome" target="blank_">Course 1</a></p>
