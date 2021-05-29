@@ -1,0 +1,23 @@
+/* <!-- The following lines of code was written using https://www.codepen.io--> */
+
+canvas {
+    border: 1pt solid dimgray;
+  }
+  
+  #headers {
+    font-family: arial;
+    color: dimgray
+  }
+  
+  body {
+    background-color: #E4EBEB;
+    text-align: center;
+    margin: 30px
+  }
+  
+  txt {
+    text-decoration: underline;
+    font-weight: bold;
+    font-family: arial;
+    color: black;
+  }
