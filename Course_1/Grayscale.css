@@ -1,0 +1,14 @@
+/* <!-- The following lines of code was written using https://www.codepen.io--> */
+
+h1 {
+    color: dimgray;
+    font-family: arial
+  }
+  
+  canvas{
+    border: 1pt solid dimgray;
+    padding: 5pt;
+    margin: 5pt;
+  /*   width: 300pt;
+    height: 300pt */
+  }
