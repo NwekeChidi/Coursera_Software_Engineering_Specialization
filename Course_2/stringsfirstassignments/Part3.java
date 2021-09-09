@@ -24,12 +24,15 @@ public class Part3 {
     }
     
     public void testing(){
+        System.out.println("Testing Method: 'twoOcurrences'");
+        System.out.println();
         //Case 1
         System.out.println("Case 1");
         String strA = "a";
         String strB = "Banana";
         boolean output = twoOccurrences(strA, strB);
         System.out.println("There are at least two occurences of " + strA + " in " + strB + " : " + output);
+        System.out.println();
         
         //Case 2
         System.out.println("Case 2");
@@ -37,6 +40,7 @@ public class Part3 {
         strB = "There is a cat by the abby";
         output = twoOccurrences(strA, strB);
         System.out.println("There are at least two occurences of " + strA + " in " + strB + " : " + output);
+        System.out.println();
         
         //Case 3
         System.out.println("Case 3");
@@ -44,15 +48,40 @@ public class Part3 {
         strB = "ctgtatgta";
         output = twoOccurrences(strA, strB);
         System.out.println("There are at least two occurences of " + strA + " in " + strB + " : " + output);
+        System.out.println();
+        
+        System.out.println("Testing Method: 'lastPart'");
+        System.out.println();
+        String result = "";
+        //Case 1
+        System.out.println("Case 1");
+        strA = "by";
+        strB = "Frisbyballing";
+        result = lastPart(strA, strB);
+        System.out.println(result);
+        System.out.println();
+        
+        //Case 2
+        System.out.println("Case 2");
+        strA = "zoo";
+        strB = "Forest";
+        result = lastPart(strA, strB);
+        System.out.println(result);
+        System.out.println();
+        
     }
     
     public String lastPart(String strA, String strB){
         // This method finds the first occurrence of strA in strB,
         //and returns the part of strB that follows strA
-        int endIndex = strB.length() + 1;
-        int startIndex = strB.indexOf(strA) + 1;
-        String result = strB.substring(startIndex, endIndex);
-        
-        return "The part of the string after " + strA + " in " + strB + " is " + result;
+        int endIndex = strB.length();
+        int extraStr = strA.length();
+        int startIndex = strB.indexOf(strA);
+        if (startIndex == -1){
+            return strB;
+        } else {
+            String result = strB.substring(startIndex+extraStr, endIndex);
+            return "The part of the string after " + strA + " in " + strB + " is " + result;
+        }
     }
 }
