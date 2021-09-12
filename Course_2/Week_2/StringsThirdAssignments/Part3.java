@@ -144,19 +144,19 @@ public class Part3 {
         StorageResource sr = getAllGenes(dna);
         
         /////// Attributes
-        // Print all strings in sr longer than 9 characters
-        System.out.println("Genes longer than 9 characters:");
+        // Print all strings in sr longer than 60 characters
+        System.out.println("Genes longer than 60 characters:");
         for (String s: sr.data()){
-            if (s.length() > 9){
+            if (s.length() > 60){
                 System.out.println(s);
             }
         }
         
-        // Print the count of strings in sr longer than 9 characters
-        System.out.println("Number of Genes longer than 9 characters:");
+        // Print the count of strings in sr longer than 60 characters
+        System.out.println("Number of Genes longer than 60 characters:");
         int count = 0;
         for (String s: sr.data()){
-            if (s.length() > 9){
+            if (s.length() > 60){
                 count+=1;
             }
         }
@@ -191,6 +191,14 @@ public class Part3 {
             }
         }
         System.out.println(maxGeneLength);
+        
+        // Print all genes in dna
+        System.out.println("Number of genes found in the strand:");
+        count = 0;
+        for (String s: sr.data()){
+            count += 1;
+        }
+        System.out.println(count);
     }
     
     public void testProcessGenes(){
