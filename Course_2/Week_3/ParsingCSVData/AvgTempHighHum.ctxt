@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=AvgTempHighHum
+comment1.params=parser
+comment1.target=double\ averageTemperatureInFile(org.apache.commons.csv.CSVParser)
+comment2.params=parser\ value
+comment2.target=double\ averageTemperatureWithHighHumidityInFile(org.apache.commons.csv.CSVParser,\ int)
+comment3.params=
+comment3.target=void\ testAverageTemperatureInFile()
+comment4.params=value
+comment4.target=void\ testAverageTemperatureWithHighHumidityInFile(int)
+numComments=5
