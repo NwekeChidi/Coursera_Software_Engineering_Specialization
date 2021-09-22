@@ -12,8 +12,8 @@ import java.io.*;
 
 public class BabyNames {
     // Defining path and path_ext
-    String path = "us_babynames_small/testing/yob";
-    String path_ext = "short.csv";
+    String path = "us_babynames/us_babynames_by_year/yob";
+    String path_ext = ".csv";
     public void dataOverview() {
         BabyBirthsData overview = new BabyBirthsData();
         overview.displayData();
@@ -24,42 +24,72 @@ public class BabyNames {
         System.out.println();
         System.out.println("Starting new test session");
         System.out.println("Testing the 'getRank()' method...");
-        int rank = getRank(2013, "Mason", "M");
+        int rank = getRank(1960, "Emily", "F");
         System.out.println(rank);
+        System.out.println("Testing the 'getRank()' method...");
+        rank = getRank(1971, "Frank", "M");
+        System.out.println(rank);
+        
         // testing getName method
         System.out.println();
         System.out.println("Testing the 'getName()' method...");
-        String name = getName(2012, 2, "M");
+        String name = getName(1980, 350, "F");
         System.out.println(name);
+        // testing getName method
+        System.out.println();
+        System.out.println("Testing the 'getName()' method...");
+        name = getName(1982, 450, "M");
+        System.out.println(name);
+        
         // testing whatIsNameInYear
         System.out.println();
         System.out.println("Testing the 'whatIsNameInYear()' method...");
-        whatIsNameInYear("Isabella", 2012, 2014, "F");
+        whatIsNameInYear("Susan", 1972, 2014, "F");
         // testing whatIsNameInYear
         System.out.println();
         System.out.println("Testing the 'whatIsNameInYear()' method...");
-        whatIsNameInYear("Mason", 2012, 2014, "M");
+        whatIsNameInYear("Owen", 1974, 2014, "M");
+        
         // testing yearOfHighestRank
         System.out.println();
         System.out.println("Testing the 'yearOfHighestRank()' method...");
-        int yearHigh = yearOfHighestRank("Mason", "M");
+        int yearHigh = yearOfHighestRank("Genevieve", "F");
+        System.out.println(yearHigh);
+        // testing yearOfHighestRank
+        System.out.println();
+        System.out.println("Testing the 'yearOfHighestRank()' method...");
+        yearHigh = yearOfHighestRank("Mich", "M");
         System.out.println(yearHigh);
         
         // testing getAverageRank
         System.out.println();
         System.out.println("Testing the 'getAverageRank()' method...");
-        double avgRank = getAverageRank("Mason", "F");
+        double avgRank = getAverageRank("Susan", "F");
         System.out.println(avgRank);
+        // testing getAverageRank
+        System.out.println();
+        System.out.println("Testing the 'getAverageRank()' method...");
+        avgRank = getAverageRank("Robert", "M");
+        System.out.println(avgRank);
+        
         // testing getTotalBirthsRankedHigher
         System.out.println();
         System.out.println("Testing the 'getTotalBirthsRankedHigher()' method...");
-        int totalRankHigher = getTotalBirthsRankedHigher(2013, "Mason", "M");
+        int totalRankHigher = getTotalBirthsRankedHigher(1990, "Emily", "F");
         System.out.println(totalRankHigher);
         // testing getTotalBirthsRankedHigher
         System.out.println();
         System.out.println("Testing the 'getTotalBirthsRankedHigher()' method...");
-        totalRankHigher = getTotalBirthsRankedHigher(2013, "Noah", "M");
+        totalRankHigher = getTotalBirthsRankedHigher(1990, "Drew", "M");
         System.out.println(totalRankHigher);
+    }
+    
+    public void testYearOfHighestRank() {
+        // testing yearOfHighestRank
+        System.out.println();
+        System.out.println("Testing the 'yearOfHighestRank()' method...");
+        int yearHigh = yearOfHighestRank("Mich", "M");
+        System.out.println(yearHigh);
     }
     
     public int getRank (int year, String name, String gender) {
