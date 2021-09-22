@@ -158,7 +158,7 @@ public class BabyNames {
         // define variables
         int highestRankYear = -1;
         int currRank = 0;
-        int highestRank = 0;
+        int highestRank = Integer.MAX_VALUE;
         // looping through files to get the ranks
         for ( File f : dr.selectedFiles()){
            // create a FileResource
@@ -169,17 +169,13 @@ public class BabyNames {
            int year = Integer.parseInt(fileName.substring(startIndex, startIndex+4));
            // get currRank
            currRank = getRank(year, name, gender);
-           // set highestRankYear to currRank if = -1
-           if (highestRankYear == -1) {
-               highestRankYear = year;
-            }
            // check if currRank > highestRank
-           if (currRank < highestRank) {
-               // set highestRank to currRank
-               highestRank = currRank;
+           if (currRank != -1 && currRank < highestRank) {
                // set highestRankYear to year
                highestRankYear = year;
-           }
+               // set highestRank to currRank
+               highestRank = currRank;
+            }
         }
         return highestRankYear;
     }
