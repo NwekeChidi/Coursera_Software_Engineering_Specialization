@@ -38,7 +38,13 @@ public class GrayScaleConverter {
         for (File f : dr.selectedFiles()) {
             // get Image resource from current file
             ImageResource ir = new ImageResource(f);
+            // convert image to grayScale
             ImageResource gray = makeGray(ir);
+            // create an instance of the ImageSaver class
+            ImageSaver saver = new ImageSaver();
+            // save converted Image
+            saver.doSave(f, ir, gray, "gray-");
+            // dray converted image to canvas
             gray.draw();
         }
     }
