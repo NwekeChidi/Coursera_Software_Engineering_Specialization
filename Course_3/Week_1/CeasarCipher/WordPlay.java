@@ -13,9 +13,8 @@ public class WordPlay {
         String vowels = "aeiou";
         if (vowels.indexOf(Character.toLowerCase(ch)) != -1){
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
     
     public String replaceVowels(String phrase, char ch){
@@ -43,5 +42,17 @@ public class WordPlay {
             }
         }
         return output.toString();
+    }
+    
+    public void testWordPlay(){
+        // test isVowel
+        System.out.println("Testing the isVowel method ....");
+        System.out.println(isVowel('F'));
+        // test replaceVowel
+        System.out.println("\nTesting the replaceVowel method ....");
+        System.out.println(replaceVowels("Hello World", '*'));
+        // test emphasize
+        System.out.println("\nTesting the emphasize method ....");
+        System.out.println(emphasize("Mary Bella Abracadabra", 'a'));
     }
 }
