@@ -8,7 +8,7 @@
 import edu.duke.*;
 
 public class CountOccurrence {
-    public int[] countOccurrence(String message){
+    public int[] countLetters(String message){
         String alph = "abcdefghijklmnopqrstuvwxyz";
         int[] counts = new int[26];
         for(int i=0; i<message.length(); i++){
