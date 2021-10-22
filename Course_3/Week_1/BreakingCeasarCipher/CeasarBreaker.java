@@ -43,4 +43,24 @@ public class CeasarBreaker {
         }
         return decryptKey;
     }
+    
+    public String decryptTwoKeys(String encrypted){
+        String halfEncrypt0 = halfOfString(encrypted, 0);
+        String halfEncrypt1 = halfOfString(encrypted, 1);
+        // get encryption keys
+        int encryptKey0 = getKey(halfEncrypt0);
+        int encryptKey1 = getKey(halfEncrypt1);
+        // print keys found
+        System.out.println("The encryption keys found are: "+encryptKey0+" and "+encryptKey1);
+        return cc.encryptTwoKeys(encrypted, 26-encryptKey0, 26-encryptKey1);
+    }
+    
+    public void testDecryptTwoKeys(){
+        FileResource fr = new FileResource();
+        String message = fr.asString();
+        String encrypted = cc.encryptTwoKeys(message, 15, 17);
+        System.out.println("\nEncrypted Message: \n"+encrypted);
+        String decrypted = decryptTwoKeys(encrypted);
+        System.out.println("\nDecrypted Message: \n"+decrypted);
+    }
 }
