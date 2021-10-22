@@ -8,20 +8,28 @@
 import edu.duke.*;
 
 public class WordLengths {
-    public void countWordLengths(FileResource resource, int[] counts){
+    public void countWordLengths(FileResource resource){
         String maxWord = "";
+        int[] counts = new int[31];
         int idx = 0;
         for(String word : resource.words()){
             int currCount = word.length();
             if(!(Character.isLetter(word.charAt(0)))){
-                currCount -= 1;
+                currCount --;
             }
             if(!(Character.isLetter(word.charAt(word.length()-1)))){
-                currCount -= 1;
+                currCount --;
             }
-            counts[idx] = currCount;
+            if(currCount >= counts.length){
+                currCount = counts.length - 1;
+                maxWord = word;
+            }
+            counts[currCount] ++;
             idx += 1;
-            System.out.println(word+": "+currCount);
+            //System.out.println(word+": "+currCount);
+        }
+        for(int k=1; k<counts.length; k++){
+            System.out.println("Number of words with length '"+k+"': "+counts[k]);
         }
         int maxIdx = indexOfMax(counts);
         System.out.println("Index of maximum word in file: "+maxIdx);
@@ -32,7 +40,7 @@ public class WordLengths {
         int currMax = 0;
         for(int i=0; i<arr.length; i++){
             if(currMax < arr[i]){
-                maxIdx = i+1;
+                maxIdx = i;
                 currMax = arr[i];
             }
         }
@@ -42,7 +50,6 @@ public class WordLengths {
     public void testCountWordLenghts(){
         System.out.println("\nTesting method 'countWordLengths'....");
         FileResource resource = new FileResource();
-        int[] counts = new int[31];
-        countWordLengths(resource, counts);
+        countWordLengths(resource);
     }
 }
