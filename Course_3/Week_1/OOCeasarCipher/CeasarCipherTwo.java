@@ -22,8 +22,8 @@ public class CeasarCipherTwo {
                             alphabet.substring(0, key1);
         shiftedAlphabet2 = alphabet.substring(key2) +
                             alphabet.substring(0, key2);
-        dKey1 = 26-key1;
-        dKey2 = 26-key2;
+        dKey1 = key1;
+        dKey2 = key2;
     }
     public String encrypt(String input){
         // Make a StringBuilder with message (encrypted)
@@ -64,7 +64,7 @@ public class CeasarCipherTwo {
     }
     
     public String decrypt(String input){
-        CeasarCipherTwo cc2 = new CeasarCipherTwo(dKey1, dKey2);
+        CeasarCipherTwo cc2 = new CeasarCipherTwo(26-dKey1, 26-dKey2);
         return cc2.encrypt(input);
     }
 }

@@ -56,7 +56,7 @@ public class TestCeasarCipherTwo {
         FileResource fr = new FileResource();
         String input = fr.asString();
         System.out.println("Given Input (2-keys): \n"+input);
-        CeasarCipherTwo cc2 = new CeasarCipherTwo(17, 3);
+        CeasarCipherTwo cc2 = new CeasarCipherTwo(21, 8);
         String encrypted = cc2.encrypt(input);
         System.out.println("Encrypted Message (2-keys): \n"+encrypted);
         System.out.println("Decrypted Message (2-keys): \n"+cc2.decrypt(encrypted));

@@ -11,7 +11,7 @@ import java.io.*;
 public class CeasarCipher {
     private String alphabet;
     private String shiftedAlphabet;
-    private int decryptKey;
+    private int dKey;
     // Write constructor
     public CeasarCipher(int key){
         // Write down the alphabet
@@ -20,7 +20,7 @@ public class CeasarCipher {
         shiftedAlphabet = alphabet.substring(key) +
                           alphabet.substring(0, key);
         // get key
-        decryptKey = 26-key;
+        dKey = key;
     }
     
     public String encrypt(String input){
@@ -54,7 +54,7 @@ public class CeasarCipher {
     }
     
     public String decrypt(String input){
-        CeasarCipher cc = new CeasarCipher(decryptKey);
+        CeasarCipher cc = new CeasarCipher(26-dKey);
         return cc.encrypt(input);
     }
 }

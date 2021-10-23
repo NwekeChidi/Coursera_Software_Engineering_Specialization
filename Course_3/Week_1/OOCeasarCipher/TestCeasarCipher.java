@@ -16,7 +16,7 @@ public class TestCeasarCipher {
             char ch = Character.toLowerCase(message.charAt(i));
             int idx = alph.indexOf(ch);
             if (idx != -1){
-                counts[idx] += 1;
+                counts[idx] ++;
             }
         }
         return counts;
@@ -35,11 +35,14 @@ public class TestCeasarCipher {
     private int getKey(String s){
         int[] freqLetters = countLetters(s);
         int maxIdx = maxIndex(freqLetters);
-        int decryptKey = maxIdx - 4; // supposedly, letter 'e' at index 4 is the most occurring letter
+        int dKey = maxIdx - 4; // supposedly, letter 'e' at index 4 is the most occurring letter
+        System.out.println("maxdx....."+maxIdx);
+        System.out.println("test..."+dKey);
         if(maxIdx < 4){
-            decryptKey = 26 - (4-maxIdx);
+            dKey = 26 - (4-maxIdx);
+            System.out.println("test0001..."+dKey);
         }
-        return decryptKey;
+        return dKey;
     }
     
     //Writing public methods
@@ -47,7 +50,7 @@ public class TestCeasarCipher {
         FileResource fr = new FileResource();
         String input = fr.asString();
         System.out.println("Given Input: \n"+input);
-        CeasarCipher cc = new CeasarCipher(18);
+        CeasarCipher cc = new CeasarCipher(15);
         String encrypted = cc.encrypt(input);
         System.out.println("Encrypted Message: \n"+encrypted);
         System.out.println("Decrypted Message: \n"+cc.decrypt(encrypted));
