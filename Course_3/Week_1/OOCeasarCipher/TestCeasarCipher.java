@@ -36,11 +36,8 @@ public class TestCeasarCipher {
         int[] freqLetters = countLetters(s);
         int maxIdx = maxIndex(freqLetters);
         int dKey = maxIdx - 4; // supposedly, letter 'e' at index 4 is the most occurring letter
-        System.out.println("maxdx....."+maxIdx);
-        System.out.println("test..."+dKey);
         if(maxIdx < 4){
             dKey = 26 - (4-maxIdx);
-            System.out.println("test0001..."+dKey);
         }
         return dKey;
     }

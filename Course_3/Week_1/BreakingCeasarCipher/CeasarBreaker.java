@@ -57,9 +57,9 @@ public class CeasarBreaker {
     
     public void testDecryptTwoKeys(){
         FileResource fr = new FileResource();
-        String encrypted = fr.asString();
-        //encrypted = "Akag tjw Xibhr awoa aoee xakex znxag xwko";
-        //String encrypted = cc.encryptTwoKeys(message, 15, 17);
+        String message = fr.asString();
+        //message = "Akag tjw Xibhr awoa aoee xakex znxag xwko";
+        String encrypted = cc.encryptTwoKeys(message, 21, 8);
         System.out.println("\nEncrypted Message: \n"+encrypted);
         String decrypted = decryptTwoKeys(encrypted);
         System.out.println("\nDecrypted Message: \n"+decrypted);
