@@ -10,7 +10,7 @@ import edu.duke.*;
 public class WordLengths {
     public void countWordLengths(FileResource resource){
         String maxWord = "";
-        int[] counts = new int[31];
+        int[] counts = new int[35];
         int idx = 0;
         for(String word : resource.words()){
             int currCount = word.length();
@@ -21,12 +21,16 @@ public class WordLengths {
                 currCount --;
             }
             if(currCount >= counts.length){
+                currCount = counts.length - 4;
+                maxWord = word;
+            }
+            if(currCount == -1){
                 currCount = counts.length - 1;
                 maxWord = word;
             }
-            counts[currCount] ++;
+            counts[currCount] += 1;
             idx += 1;
-            //System.out.println(word+": "+currCount);
+            
         }
         for(int k=1; k<counts.length; k++){
             System.out.println("Number of words with length '"+k+"': "+counts[k]);
