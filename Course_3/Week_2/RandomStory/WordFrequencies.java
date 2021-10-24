@@ -33,11 +33,25 @@ public class WordFrequencies {
         }
     }
     
+    public int findIndexOfMax(){
+        int maxIndex = 0;
+        for (int i=0; i<myFreqs.size(); i++){
+            int currMax = myFreqs.get(i);
+            if (currMax > maxIndex){
+                maxIndex = currMax;
+            }
+        }
+        return maxIndex;
+    }
+    
     public void tester(){
         findUnique();
         System.out.println("# unique words: "+myWords.size());
         for (int i=0; i<myWords.size(); i++){
             System.out.println(myFreqs.get(i)+"\t"+myWords.get(i));
         }
+        int maxIndex = findIndexOfMax();
+        System.out.println("The word that occurs most often and its count are:\n"+
+                            maxIndex+"\t"+myWords.get(maxIndex));
     }
 }
