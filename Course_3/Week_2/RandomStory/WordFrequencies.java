@@ -54,6 +54,6 @@ public class WordFrequencies {
         }
         int maxIndex = findIndexOfMax();
         System.out.println("The word that occurs most often and its count are:- "+
-                            maxIndex+" "+myWords.get(maxIndex));
+                            myFreqs.get(maxIndex)+" "+myWords.get(maxIndex));
     }
 }

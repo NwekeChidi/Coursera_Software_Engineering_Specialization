@@ -47,9 +47,22 @@ public class CharactersInPlay {
         for (int i=0; i<charNames.size(); i++){
             partNum = charCounts.get(i);
             if (partNum >= num1 && partNum <= num2){
-                System.out.println(charNames.get(i));
+                System.out.println(charNames.get(i)+"\t"+charCounts.get(i));
             }
         }
+    }
+    
+    public int findIndexOfMax(){
+        int maxIndex = 0;
+        int maxCount = 0;
+        for (int i=0; i<charCounts.size(); i++){
+            int currMax = charCounts.get(i);
+            if (currMax > maxCount){
+                maxCount = currMax;
+                maxIndex = i;
+            }
+        }
+        return maxIndex;
     }
     
     public void tester(){
@@ -57,7 +70,11 @@ public class CharactersInPlay {
         for (int i=0; i<charNames.size(); i++){
             System.out.println(charNames.get(i)+"\t"+charCounts.get(i));
         }
-        charactersWithNumParts(2, 10);
+        int maxIdx = findIndexOfMax();
+        System.out.println("\nCharacter with max speaking parts is: "+
+                        charNames.get(maxIdx)+", with "+charCounts.get(maxIdx)+
+                        " speaking parts.\n");
+        charactersWithNumParts(10, 15);
     }
 
 }
