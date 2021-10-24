@@ -30,6 +30,8 @@ public class CharactersInPlay {
     }
     
     public void findAllCharacters(){
+        charNames.clear();
+        charCounts.clear();
         FileResource fr = new FileResource();
         for (String line : fr.lines()){
             int idxOfPeriod = line.indexOf(".");
@@ -40,14 +42,22 @@ public class CharactersInPlay {
         }
     }
     
+    public void charactersWithNumParts(int num1, int num2){
+        int partNum = 0;
+        for (int i=0; i<charNames.size(); i++){
+            partNum = charCounts.get(i);
+            if (partNum >= num1 && partNum <= num2){
+                System.out.println(charNames.get(i));
+            }
+        }
+    }
+    
     public void tester(){
         findAllCharacters();
         for (int i=0; i<charNames.size(); i++){
             System.out.println(charNames.get(i)+"\t"+charCounts.get(i));
         }
-        //int maxIndex = findIndexOfMax();
-        //System.out.println("The word that occurs most often and its count are:- "+
-        //                    maxIndex+" "+myWords.get(maxIndex));
+        charactersWithNumParts(2, 10);
     }
 
 }
