@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=WordsInFiles
+comment1.params=
+comment1.target=WordsInFiles()
+comment2.params=f
+comment2.target=void\ addWordsFromFile(java.io.File)
+numComments=3
