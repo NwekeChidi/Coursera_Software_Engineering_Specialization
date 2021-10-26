@@ -21,7 +21,7 @@ public class WordFrequenciesMap {
                 map.put(w,1);
             }
         }
-        System.out.println("total words : "+map.size());
+        System.out.println("# Unique words : "+map.size());
         for (String w : map.keySet()){
             int occurrences = map.get(w);
             if (occurrences > 500){
