@@ -4,6 +4,7 @@ import java.util.*;
 public class GladLib {
     private HashMap<String,ArrayList<String>> myMap;
     private ArrayList<String> trackList;
+    private ArrayList<String> trackList1;
     
     private Random myRandom;
     
@@ -21,13 +22,15 @@ public class GladLib {
     }
     
     private void initializeFromSource(String source) {
+        myMap = new HashMap<String,ArrayList<String>>();
         String[] labels = {"country", "noun", "adjective", "name",
-                           "animal", "timeframe", "verb", "fruit"};
+                           "animal", "timeframe", "verb", "fruit", "color"};
         for (String s : labels){
             ArrayList<String> list = readIt(source+"/"+s+".txt");
             myMap.put(s, list);
         }
         trackList = new ArrayList<String>();
+        trackList1 = new ArrayList<String>();
     }
     
     private String randomFrom(ArrayList<String> source){
@@ -38,6 +41,9 @@ public class GladLib {
     private String getSubstitute(String label) {
         if (label.equals("number")){
             return ""+myRandom.nextInt(50)+5;
+        }
+        if (trackList1.contains(label) == false){
+            trackList1.add(label);
         }
         return randomFrom(myMap.get(label));
     }
@@ -108,12 +114,31 @@ public class GladLib {
         return list;
     }
     
+    private int totalWordsInMap(){
+        int totalWords = 0;
+        for (String key : myMap.keySet()){
+            totalWords += myMap.get(key).size();
+        }
+        return totalWords;
+    }
+    
+    private int totalWordsConsidered(){
+        int totalWords = 0;
+        for (String cat : trackList1){
+            totalWords += myMap.get(cat).size();
+        }
+        return totalWords;
+    }
+    
     public void makeStory(){
         trackList.clear();
+        trackList1.clear();
         System.out.println("\n");
         String story = fromTemplate("GladLibData/data/madtemplate2.txt");
         printOut(story, 60);
         int replacedWords = trackList.size();
         System.out.println("\n\nTotal number of words replaced: "+replacedWords);
+        System.out.println("Total Words Considered: "+totalWordsConsidered());
+        System.out.println("Total Words in Map: "+totalWordsInMap());
     }
 }
