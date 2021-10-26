@@ -76,6 +76,6 @@ public class WordsInFiles {
             System.out.println("\n"+key+":");
             printFilesIn(key);
         }
-        System.out.println(wordMap);
+        System.out.println("\nWordMap: \n"+wordMap);
     }
 }
