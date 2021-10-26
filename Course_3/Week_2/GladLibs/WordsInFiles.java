@@ -24,9 +24,12 @@ public class WordsInFiles {
             ArrayList<String> update = new ArrayList<String>();
             if (wordMap.keySet().contains(word)){
                 update = wordMap.get(word);
-                update.add(fname);
-                wordMap.put(word,update);
+                if (!update.contains(fname)){
+                    update.add(fname);
+                    //wordMap.put(word,update);
+                }
             } else {
+                update.clear();
                 update.add(fname);
                 wordMap.put(word,update);
             }
@@ -50,6 +53,8 @@ public class WordsInFiles {
                 wordList.add(key);
             }
         }
+        System.out.println("Words appearing in exactly "+number+" files:");
+        System.out.println("Size: "+wordList.size());
         return wordList;
     }
     
@@ -71,11 +76,12 @@ public class WordsInFiles {
         System.out.println("\nRunning WordsInFiles class ......\n\n");
         buildWordFileMap();
         System.out.println("Max number of files any word is in: "+maxNumber());
-        System.out.println("Words appearing in "+2+" files: "+wordsInNumFiles(2));
-        for (String key : wordMap.keySet()){
-            System.out.println("\n"+key+":");
-            printFilesIn(key);
-        }
-        System.out.println("\nWordMap: \n"+wordMap);
+        System.out.println(wordsInNumFiles(5));
+        //for (String key : wordMap.keySet()){
+        //    System.out.println("\n"+key+":");
+        //    printFilesIn(key);
+        //}
+        //System.out.println("\nWordMap: \n"+wordMap);
+        printFilesIn("red");
     }
 }
