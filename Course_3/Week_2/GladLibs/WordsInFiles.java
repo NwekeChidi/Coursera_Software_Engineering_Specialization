@@ -76,12 +76,14 @@ public class WordsInFiles {
         System.out.println("\nRunning WordsInFiles class ......\n\n");
         buildWordFileMap();
         System.out.println("Max number of files any word is in: "+maxNumber());
-        System.out.println(wordsInNumFiles(5));
+        System.out.println(wordsInNumFiles(4));
         //for (String key : wordMap.keySet()){
         //    System.out.println("\n"+key+":");
         //    printFilesIn(key);
         //}
         //System.out.println("\nWordMap: \n"+wordMap);
-        printFilesIn("red");
+        printFilesIn("laid");
+        System.out.println();
+        printFilesIn("tree");
     }
 }

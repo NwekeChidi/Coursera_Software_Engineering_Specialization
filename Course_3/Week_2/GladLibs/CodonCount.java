@@ -56,7 +56,7 @@ public class CodonCount {
         FileResource fr = new FileResource();
         String dna = fr.asString().toUpperCase().trim();
         int[] rframe = {0,1,2};
-        int start = 1, end = 5;
+        int start = 3, end = 10;
         for (int i : rframe){
             buildCodonMap(i, dna);
             System.out.println("\nReading frame starting with "+i+" results in "+
