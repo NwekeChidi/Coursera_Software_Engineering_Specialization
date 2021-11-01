@@ -2,4 +2,14 @@
 comment0.target=LogEntry
 comment1.params=ip\ time\ req\ status\ bytes
 comment1.target=LogEntry(java.lang.String,\ java.util.Date,\ java.lang.String,\ int,\ int)
-numComments=2
+comment2.params=
+comment2.target=java.util.Date\ getAccessTime()
+comment3.params=
+comment3.target=java.lang.String\ getRequest()
+comment4.params=
+comment4.target=int\ getStatusCode()
+comment5.params=
+comment5.target=int\ getBytesReturned()
+comment6.params=
+comment6.target=java.lang.String\ toString()
+numComments=7

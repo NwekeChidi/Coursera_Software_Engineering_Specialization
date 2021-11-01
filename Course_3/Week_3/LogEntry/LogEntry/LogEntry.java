@@ -22,4 +22,20 @@ public class LogEntry {
         statusCode = status;
         bytesReturned = bytes;
     }
+    public Date getAccessTime(){
+        return accessTime;
+    }
+    public String getRequest(){
+        return request;
+    }
+    public int getStatusCode(){
+        return statusCode;
+    }
+    public int getBytesReturned(){
+        return bytesReturned;
+    }
+    public String toString(){
+        return ipAddress+" "+accessTime+" "+request+" "+statusCode+
+                    " "+bytesReturned;
+    }
 }
