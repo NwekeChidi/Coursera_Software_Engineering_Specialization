@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=LogEntry
+comment1.params=ip\ time\ req\ status\ bytes
+comment1.target=LogEntry(java.lang.String,\ java.util.Date,\ java.lang.String,\ int,\ int)
+numComments=2
