@@ -15,10 +15,17 @@ public class LogAnalyzer
      
      public LogAnalyzer() {
          // complete constructor
+         records = new ArrayList<LogEntry>();
      }
         
      public void readFile(String filename) {
          // complete method
+         FileResource fr = new FileResource(filename);
+         WebLogParser wb = new WebLogParser();
+         for (String s : fr.lines()){
+             LogEntry le = wb.parseEntry(s);
+             records.add(le);
+            }
      }
         
      public void printAll() {
@@ -26,6 +33,4 @@ public class LogAnalyzer
              System.out.println(le);
          }
      }
-     
-     
 }

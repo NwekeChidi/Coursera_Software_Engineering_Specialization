@@ -1,17 +1,26 @@
 
 /**
- * Write a description of Tester here.
+ * Write a description of class Tester here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
+
 import java.util.*;
-public class Tester {
-    public void testLogEntry(){
+
+public class Tester
+{
+    public void testLogEntry() {
         LogEntry le = new LogEntry("1.2.3.4", new Date(), "example request", 200, 500);
         System.out.println(le);
-        
-        LogEntry le1 = new LogEntry("1.2.200.4", new Date(), "example request 1", 200, 400);
+        LogEntry le1 = new LogEntry("1.2.100.4", new Date(), "example request 1", 300, 400);
         System.out.println(le1);
+    }
+    
+    public void testLogAnalyzer() {
+        // complete method
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("short-test_log");
+        la.printAll();
     }
 }
