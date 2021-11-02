@@ -27,6 +27,23 @@ public class LogAnalyzer
              records.add(le);
             }
      }
+     
+     public int countUniqueIPs(){
+         // uniqueIPs starts as an empty list
+         ArrayList<String> uniqueIPs = new ArrayList<String>();
+         // for each element le in record
+         for (LogEntry le : records){
+             // ipAddr is le's ipAddress
+             String ipAddr = le.getIpAddress();
+             // if ipAddr is not in uniqueIps
+             if (!uniqueIPs.contains(ipAddr)){
+                 // add ipAddr to uniqueIps
+                 uniqueIPs.add(ipAddr);
+                }
+         }
+         // return the size of uniqueIPs
+         return uniqueIPs.size();
+     }
         
      public void printAll() {
          for (LogEntry le : records) {

@@ -22,6 +22,9 @@ public class LogEntry {
         statusCode = status;
         bytesReturned = bytes;
     }
+    public String getIpAddress(){
+        return ipAddress;
+    }
     public Date getAccessTime(){
         return accessTime;
     }

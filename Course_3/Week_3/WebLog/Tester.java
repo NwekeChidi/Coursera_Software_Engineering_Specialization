@@ -23,4 +23,11 @@ public class Tester
         la.readFile("short-test_log");
         la.printAll();
     }
+    
+    public void testUniqIP(){
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("short-test_log");
+        int uniqueIPs = la.countUniqueIPs();
+        System.out.println("There are "+uniqueIPs+" unique IPs");
+    }
 }
