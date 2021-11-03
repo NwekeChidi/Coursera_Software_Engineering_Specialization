@@ -30,4 +30,10 @@ public class Tester
         int uniqueIPs = la.countUniqueIPs();
         System.out.println("There are "+uniqueIPs+" unique IPs");
     }
+    
+    public void testPrintAllHigh(int num){
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("short-test_log");
+        la.printAllHigherThanNum(num);
+    }
 }

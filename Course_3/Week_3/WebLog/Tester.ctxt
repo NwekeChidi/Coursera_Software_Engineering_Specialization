@@ -6,4 +6,6 @@ comment2.params=
 comment2.target=void\ testLogAnalyzer()
 comment3.params=
 comment3.target=void\ testUniqIP()
-numComments=4
+comment4.params=num
+comment4.target=void\ testPrintAllHigh(int)
+numComments=5

@@ -44,6 +44,20 @@ public class LogAnalyzer
          // return the size of uniqueIPs
          return uniqueIPs.size();
      }
+     
+     public void printAllHigherThanNum(int num){
+         System.out.println("\nAll Log Entries with status code greater than "+num+" are:");
+         for (LogEntry le : records){
+             int status = le.getStatusCode();
+             if (status > num){
+                 System.out.println(le);
+             }
+         }
+     }
+     
+     public ArrayList uniqueIPVisitsOnDay(String someday){
+         
+        }
         
      public void printAll() {
          for (LogEntry le : records) {
