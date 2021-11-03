@@ -45,4 +45,13 @@ public class Tester
         System.out.println("Unique IP visits on Sep 14: "+
                 la.uniqueIPVisitsOnDay("Sep 14"));
     }
+    
+    public void testCountUniqRange(){
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("short-test_log");
+        System.out.println("Unique IPs in range 200-299: "+
+                la.countUniqueIPsInRange(200,299));
+        System.out.println("Unique IPs in range 300-399: "+
+                la.countUniqueIPsInRange(300,399));;
+    }
 }

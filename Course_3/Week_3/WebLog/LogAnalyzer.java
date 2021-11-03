@@ -66,6 +66,20 @@ public class LogAnalyzer
          }
          return ipVisits;
      }
+     
+     public int countUniqueIPsInRange(int low, int high){
+        ArrayList<String> ipVisits = new ArrayList<String>();
+        int numUnique = 0;
+        for (LogEntry le : records){
+            int status = le.getStatusCode();
+            String currIP = le.getIpAddress();
+            if (status >= low && status <= high && !ipVisits.contains(currIP)){
+                numUnique ++;
+                ipVisits.add(currIP);
+            }
+        }
+        return numUnique;
+     }
         
      public void printAll() {
          for (LogEntry le : records) {
