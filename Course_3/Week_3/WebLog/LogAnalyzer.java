@@ -100,8 +100,19 @@ public class LogAnalyzer
              if(ip.getValue()>maxVisits){
                  maxVisits = ip.getValue();
              }
-         };
+         }
          return maxVisits;
+     }
+     
+     public ArrayList<String> iPsMostVisits(HashMap<String,Integer> countsIp){
+        ArrayList<String> mostVisits = new ArrayList<String>();
+        int maxVisit = mostNumberVisitsByIP(countsIp);
+        for(Map.Entry<String,Integer> ip : countsIp.entrySet()){ 
+            if(ip.getValue()==maxVisit){
+                mostVisits.add(ip.getKey());
+            }
+        }
+        return mostVisits;
      }
         
      public void printAll() {

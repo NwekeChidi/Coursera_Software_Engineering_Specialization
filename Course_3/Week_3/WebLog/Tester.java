@@ -69,4 +69,14 @@ public class Tester
         int maxNum = la.mostNumberVisitsByIP(counts);
         System.out.println("Max Number of visits: "+maxNum);
     }
+    
+    public void testIPsMostVisits(){
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("weblog3-short_log");
+        HashMap<String,Integer> counts = la.countVisitsPerIp();
+        ArrayList<String> iPs = la.iPsMostVisits(counts);
+        System.out.println("IPs most visits: "+iPs);
+    }
+    
+    
 }
