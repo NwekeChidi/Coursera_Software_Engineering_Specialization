@@ -132,7 +132,19 @@ public class LogAnalyzer
          }
          return iPsMapDays;
      }
-        
+     
+     public String dayWithMostIPVisits(HashMap<String,ArrayList<String>> iPsMapDays){
+         String answer = "";
+         int maxIPs = 0;
+         for(Map.Entry<String,ArrayList<String>> ipDays : iPsMapDays.entrySet()){ 
+            if(ipDays.getValue().size()>maxIPs){
+                answer = ipDays.getKey();
+                maxIPs = ipDays.getValue().size();
+            }
+        }
+        return answer;
+     }
+     
      public void printAll() {
          for (LogEntry le : records) {
              System.out.println(le);

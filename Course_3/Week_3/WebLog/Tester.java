@@ -85,5 +85,11 @@ public class Tester
         System.out.println("IPs for Days: \n"+iPsDays);
     }
     
-    
+    public void testDayMostIPVisits(){
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("weblog3-short_log");
+        HashMap<String,ArrayList<String>> iPsDays = la.iPsForDays();
+        String maxIPDay = la.dayWithMostIPVisits(iPsDays);
+        System.out.println("Day with most IP visits is: "+maxIPDay);
+    }
 }
