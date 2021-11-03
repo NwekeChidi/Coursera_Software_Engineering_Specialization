@@ -8,4 +8,6 @@ comment3.params=
 comment3.target=void\ testUniqIP()
 comment4.params=num
 comment4.target=void\ testPrintAllHigh(int)
-numComments=5
+comment5.params=
+comment5.target=void\ testUniqueIpVisits()
+numComments=6

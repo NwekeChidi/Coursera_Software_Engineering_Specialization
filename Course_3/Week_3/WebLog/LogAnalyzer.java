@@ -56,8 +56,16 @@ public class LogAnalyzer
      }
      
      public ArrayList uniqueIPVisitsOnDay(String someday){
-         
-        }
+         ArrayList<String> ipVisits = new ArrayList<String>();
+         for (LogEntry le : records){
+             String date = le.getAccessTime().toString();
+             String currIP = le.getIpAddress();
+             if (date.contains(someday) && !ipVisits.contains(currIP)){
+                 ipVisits.add(currIP);
+             }
+         }
+         return ipVisits;
+     }
         
      public void printAll() {
          for (LogEntry le : records) {
