@@ -93,6 +93,16 @@ public class LogAnalyzer
          }
          return counts;
      }
+     
+     public int mostNumberVisitsByIP(HashMap<String,Integer> countsIp){
+         int maxVisits = 0;
+         for (Map.Entry<String,Integer> ip : countsIp.entrySet()){ 
+             if(ip.getValue()>maxVisits){
+                 maxVisits = ip.getValue();
+             }
+         };
+         return maxVisits;
+     }
         
      public void printAll() {
          for (LogEntry le : records) {
