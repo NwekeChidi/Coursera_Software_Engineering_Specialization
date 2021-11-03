@@ -114,6 +114,24 @@ public class LogAnalyzer
         }
         return mostVisits;
      }
+     
+     public HashMap<String,ArrayList<String>> iPsForDays(){
+         HashMap<String,ArrayList<String>> iPsMapDays = new HashMap<String,ArrayList<String>>();
+         for(LogEntry le : records){
+             String currDate = le.getAccessTime().toString().substring(3,10);
+             String ip = le.getIpAddress();
+             ArrayList<String> IPs = new ArrayList<String>();
+             if(!iPsMapDays.containsKey(currDate)){
+                 IPs.add(ip);
+                 iPsMapDays.put(currDate, IPs);
+             } else {
+                 IPs = iPsMapDays.get(currDate);
+                 IPs.add(ip);
+                 iPsMapDays.put(currDate, IPs);
+             }
+         }
+         return iPsMapDays;
+     }
         
      public void printAll() {
          for (LogEntry le : records) {

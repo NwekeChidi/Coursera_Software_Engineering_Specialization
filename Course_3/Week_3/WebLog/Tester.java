@@ -78,5 +78,12 @@ public class Tester
         System.out.println("IPs most visits: "+iPs);
     }
     
+    public void testIPsForDays(){
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("weblog3-short_log");
+        HashMap<String,ArrayList<String>> iPsDays = la.iPsForDays();
+        System.out.println("IPs for Days: \n"+iPsDays);
+    }
+    
     
 }

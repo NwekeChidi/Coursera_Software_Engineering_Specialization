@@ -2,6 +2,8 @@
 comment0.target=Tester
 comment1.params=
 comment1.target=void\ testLogEntry()
+comment10.params=
+comment10.target=void\ testIPsForDays()
 comment2.params=
 comment2.target=void\ testLogAnalyzer()
 comment3.params=
@@ -18,4 +20,4 @@ comment8.params=
 comment8.target=void\ testMostNumVisitsIP()
 comment9.params=
 comment9.target=void\ testIPsMostVisits()
-numComments=10
+numComments=11
