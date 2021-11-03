@@ -33,22 +33,22 @@ public class Tester
     
     public void testPrintAllHigh(int num){
         LogAnalyzer la = new LogAnalyzer();
-        la.readFile("short-test_log");
+        la.readFile("weblog1_log");
         la.printAllHigherThanNum(num);
     }
     
     public void testUniqueIpVisits(){
         LogAnalyzer la = new LogAnalyzer();
-        la.readFile("weblog-short_log");
-        System.out.println("Unique IP visits on Sep 30: "+
-                la.uniqueIPVisitsOnDay("Sep 30"));
+        la.readFile("weblog1_log");
+        System.out.println("Unique IP visits on Mar 24: "+
+                la.uniqueIPVisitsOnDay("Mar 24").size());
         System.out.println("Unique IP visits on Sep 14: "+
                 la.uniqueIPVisitsOnDay("Sep 14"));
     }
     
     public void testCountUniqRange(){
         LogAnalyzer la = new LogAnalyzer();
-        la.readFile("short-test_log");
+        la.readFile("weblog1_log");
         System.out.println("Unique IPs in range 200-299: "+
                 la.countUniqueIPsInRange(200,299));
         System.out.println("Unique IPs in range 300-399: "+
