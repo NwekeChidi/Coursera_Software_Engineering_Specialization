@@ -54,4 +54,11 @@ public class Tester
         System.out.println("Unique IPs in range 300-399: "+
                 la.countUniqueIPsInRange(300,399));;
     }
+    
+    public void testCountVisitsPerIp(){
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("short-test_log");
+        HashMap<String,Integer> counts = la.countVisitsPerIp();
+        System.out.println(counts);
+    }
 }
