@@ -1,9 +1,11 @@
 import java.util.*;
+import java.io.*;
 import edu.duke.*;
 
 public class VigenereBreaker {
+    
     public String sliceString(String message, int whichSlice, int totalSlices) {
-        //REPLACE WITH YOUR CODE
+        //REPLACE WITH YOUR CODE;
         String sliced = "";
         for (int i=whichSlice; i<message.length(); i+=totalSlices){
             sliced += message.charAt(i);
@@ -45,8 +47,9 @@ public class VigenereBreaker {
         int realWords = 0;
         String finalDecrypt = "";
         int keyLength = 0;
+        char mostCommon = mostCommonCharIn(dictionary);
         for(int i=1; i<100; i++){
-            int[] keyList = tryKeyLength(encrypted, i, 'e');
+            int[] keyList = tryKeyLength(encrypted, i, mostCommon);
             VigenereCipher vc = new VigenereCipher(keyList);
             String decrypted = vc.decrypt(encrypted);
             int currRealWords = countWords(decrypted, dictionary);
@@ -56,8 +59,8 @@ public class VigenereBreaker {
                 keyLength = i;
             }
         }
-        System.out.println("Message contains " + realWords + " valid words from dictionary");
-        System.out.println("Message decoded with keylength of " + keyLength+"!\n\n");
+        System.out.println("Message contains "+realWords+" valid words from dictionary");
+        System.out.println("Message decoded with key of length "+keyLength+"!\n\n");
         return finalDecrypt;
     }
     
@@ -83,16 +86,41 @@ public class VigenereBreaker {
         }
         return mostCommonChar;
     }
+    
+    public void breakForAllLangs(String encrypted, HashMap<String,HashSet<String>> languages){
+        int realWords = 0;
+        String dLang = "";
+        String decrypted = "";
+        for (String language : languages.keySet()){
+            HashSet<String> dictionary = languages.get(language);
+            decrypted = breakForLanguage(encrypted, dictionary);
+            int currRealWords = countWords(decrypted, dictionary);
+            if (realWords < currRealWords){
+                realWords = currRealWords;
+                dLang = language;
+            }
+        }
+        System.out.println("Message Decrypted in "+dLang+" language");
+        System.out.println("DECRYPTED MESSAGE:");
+        System.out.println(decrypted);
+    }
 
     public void breakVigenere () {
         //WRITE YOUR CODE HERE
-        FileResource fr = new FileResource();
+        FileResource fr = new FileResource("messages/secretmessage4.txt");
         String message = fr.asString();
-        FileResource dictFr = new FileResource("dictionaries/English");
-        HashSet<String> dict = readDictionary(dictFr);
-        String decrypted = breakForLanguage(message, dict);
-        System.out.println("Please Wait....");
-        System.out.println("DECRYPTED MESSAGE:\n"+decrypted);
+        System.out.println("Select Dictionary Files....");
+        DirectoryResource dictDr = new DirectoryResource();
+        HashMap<String,HashSet<String>> languages = new HashMap<String,HashSet<String>>();
+        for (File f : dictDr.selectedFiles()){
+            String currLang = f.getName();
+            FileResource currFr = new FileResource(f);
+            HashSet<String> currDict = readDictionary(currFr);
+            System.out.println("Completed Reading "+currLang+" Dictionary");
+            languages.put(currLang, currDict);
+        }
+        System.out.println("\nPlease Wait....\n");
+        breakForAllLangs(message, languages);
     }
     
 }

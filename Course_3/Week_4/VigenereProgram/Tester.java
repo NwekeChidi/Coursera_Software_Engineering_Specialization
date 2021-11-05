@@ -40,7 +40,7 @@ public class Tester {
         System.out.println(dictSet);
     }
     
-    public void testBreakVigenereUnknownKey(){
+    public void testBreakVigenereUnknown(){
         System.out.println("Starting Decryption......\n\n");
         vb.breakVigenere();
         System.out.println("\n\nCompleted Decryption!");
