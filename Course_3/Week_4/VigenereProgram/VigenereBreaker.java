@@ -4,23 +4,22 @@ import edu.duke.*;
 public class VigenereBreaker {
     public String sliceString(String message, int whichSlice, int totalSlices) {
         //REPLACE WITH YOUR CODE
-        StringBuilder sb = new StringBuilder();
+        String sliced = "";
         for (int i=whichSlice; i<message.length(); i+=totalSlices){
-            sb.append(message.charAt(i));
+            sliced += message.charAt(i);
         }
-        return sb.toString();
+        return sliced;
     }
 
     public int[] tryKeyLength(String encrypted, int klength, char mostCommon) {
-        int[] key = new int[klength];
-        //WRITE YOUR CODE HERE
-        CaesarCracker ccr = new CaesarCracker(mostCommon);
-        for(int i=0; i<key.length; i++){
+        int[] keyList = new int[klength];
+        //WRITE YOUR CODE HERE;
+        for (int i=0; i<klength; i++){
             String currEncrypt = sliceString(encrypted, i, klength);
-            int currKey = ccr.getKey(currEncrypt);
-            key[i] = currKey;
+            CaesarCracker ccr = new CaesarCracker(mostCommon);
+            keyList[i] = ccr.getKey(currEncrypt);
         }
-        return key;
+        return keyList;
     }
     
     public HashSet<String> readDictionary(FileResource fr){
@@ -34,8 +33,8 @@ public class VigenereBreaker {
     public int countWords(String message, HashSet<String> dictionary){
         String[] splitM = message.split("\\W+");
         int realWords = 0;
-        for (int i=0; i<splitM.length; i++){
-            if(dictionary.contains(splitM[i].toLowerCase())){
+        for (String word: splitM){
+            if(dictionary.contains(word.toLowerCase())){
                 realWords ++;
             }
         }
@@ -44,22 +43,33 @@ public class VigenereBreaker {
     
     public String breakForLanguage(String encrypted, HashSet<String> dictionary){
         int realWords = 0;
-        char mostCommon = 'e';
         String finalDecrypt = "";
-        for(int i=0; i<encrypted.length(); i++){
-            int[] keyLength = tryKeyLength(encrypted, i, mostCommon);
-            VigenereCipher vc = new VigenereCipher(keyLength);
+        int keyLength = 0;
+        for(int i=1; i<encrypted.length(); i++){
+            int[] keyList = tryKeyLength(encrypted, i, 'e');
+            VigenereCipher vc = new VigenereCipher(keyList);
             String decrypted = vc.decrypt(encrypted);
             int currRealWords = countWords(decrypted, dictionary);
             if (currRealWords > realWords){
                 finalDecrypt = decrypted;
+                realWords = currRealWords;
+                keyLength = i;
             }
         }
+        System.out.println("Message contains " + realWords + " valid words from dictionary");
+        System.out.println("Message decoded with keylength of " + keyLength+"!\n\n");
         return finalDecrypt;
     }
 
     public void breakVigenere () {
         //WRITE YOUR CODE HERE
+        FileResource fr = new FileResource();
+        String message = fr.asString();
+        FileResource dictFr = new FileResource("dictionaries/English");
+        HashSet<String> dict = readDictionary(dictFr);
+        String decrypted = breakForLanguage(message, dict);
+        System.out.println("Please Wait....");
+        System.out.println("DECRYPTED MESSAGE:\n"+decrypted);
     }
     
 }

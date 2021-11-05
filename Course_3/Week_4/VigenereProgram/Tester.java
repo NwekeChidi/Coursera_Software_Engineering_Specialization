@@ -8,7 +8,7 @@
 import edu.duke.*;
 import java.util.*;
 
-public class TesterKnown {
+public class Tester {
     VigenereBreaker vb = new VigenereBreaker();
     
     public void testSliceString(){
@@ -22,9 +22,27 @@ public class TesterKnown {
         //}
     }
     
+    public void testTryKeyLength(){
+        FileResource fr = new FileResource();
+        String message = fr.asString();
+        System.out.println("Found Key list with length: ");
+        int[] keyList = vb.tryKeyLength(message, 4, 'e');
+        System.out.print("[ ");
+        for (int key : keyList){
+            System.out.print(key+", ");
+        }
+        System.out.println("]");
+    }
+    
     public void testReadDictionary(){
         FileResource fr = new FileResource();
         HashSet<String> dictSet = vb.readDictionary(fr);
         System.out.println(dictSet);
+    }
+    
+    public void testBreakVigenere(){
+        System.out.println("Starting Decryption......\n\n");
+        vb.breakVigenere();
+        System.out.println("\n\nCompleted Decryption!");
     }
 }
