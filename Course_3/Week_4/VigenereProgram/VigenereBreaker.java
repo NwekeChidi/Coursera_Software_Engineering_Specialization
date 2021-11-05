@@ -45,7 +45,7 @@ public class VigenereBreaker {
         int realWords = 0;
         String finalDecrypt = "";
         int keyLength = 0;
-        for(int i=1; i<encrypted.length(); i++){
+        for(int i=1; i<100; i++){
             int[] keyList = tryKeyLength(encrypted, i, 'e');
             VigenereCipher vc = new VigenereCipher(keyList);
             String decrypted = vc.decrypt(encrypted);
@@ -59,6 +59,29 @@ public class VigenereBreaker {
         System.out.println("Message contains " + realWords + " valid words from dictionary");
         System.out.println("Message decoded with keylength of " + keyLength+"!\n\n");
         return finalDecrypt;
+    }
+    
+    public char mostCommonCharIn(HashSet<String> dictionary){
+        int mostCommon = 0;
+        char mostCommonChar = 'a';
+        HashMap<Character, Integer> charMap = new HashMap<Character,Integer>();
+        for (String word : dictionary){
+            for (int i=0; i<word.length(); i++){
+                char letter = word.charAt(i);
+                if (charMap.containsKey(letter)){
+                    charMap.put(letter, charMap.get(letter)+1);
+                } else {
+                    charMap.put(letter, 1);
+                }
+            }
+        }
+        for (Map.Entry<Character, Integer> set : charMap.entrySet()){
+            if ( mostCommon < set.getValue()){
+                mostCommonChar = set.getKey();
+                mostCommon = set.getValue();
+            }
+        }
+        return mostCommonChar;
     }
 
     public void breakVigenere () {

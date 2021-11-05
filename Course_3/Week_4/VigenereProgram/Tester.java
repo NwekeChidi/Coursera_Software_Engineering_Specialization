@@ -40,9 +40,27 @@ public class Tester {
         System.out.println(dictSet);
     }
     
-    public void testBreakVigenere(){
+    public void testBreakVigenereUnknownKey(){
         System.out.println("Starting Decryption......\n\n");
         vb.breakVigenere();
         System.out.println("\n\nCompleted Decryption!");
+    }
+    
+    public void testBreakVigenereKnownKey(){
+        FileResource fr = new FileResource("messages/secretmessage2.txt");
+        String encrypted = fr.asString();
+        int[] keyList = vb.tryKeyLength(encrypted, 38, 'e');
+        VigenereCipher vc = new VigenereCipher(keyList);
+        String decrypted = vc.decrypt(encrypted);
+        FileResource dictFr = new FileResource("dictionaries/English");
+        HashSet<String> dict = vb.readDictionary(dictFr);
+        int currRealWords = vb.countWords(decrypted, dict);
+        System.out.println(currRealWords);
+    }
+    
+    public void testMostCommonChar(){
+        FileResource dictFr = new FileResource("dictionaries/English");
+        HashSet<String> dict = vb.readDictionary(dictFr);
+        System.out.println("Most Common Character In English: "+vb.mostCommonCharIn(dict));
     }
 }
