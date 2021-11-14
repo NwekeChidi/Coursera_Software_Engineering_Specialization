@@ -27,19 +27,18 @@ public class EarthQuakeClient {
     }
             
     public void dumpCSV(ArrayList<QuakeEntry> list){
-		System.out.println("Latitude,Longitude,Magnitude,Info");
-		for(QuakeEntry qe : list){
-			System.out.printf("%4.2f,%4.2f,%4.2f,%s\n",
-			                  qe.getLocation().getLatitude(),
-			                  qe.getLocation().getLongitude(),
-			                  qe.getMagnitude(),
-			                  qe.getInfo());
-	    }
-		
-	}
-	
-	public void bigQuakes() {
-	    EarthQuakeParser parser = new EarthQuakeParser();
+        System.out.println("Latitude,Longitude,Magnitude,Info");
+        for(QuakeEntry qe : list){
+            System.out.printf("%4.2f,%4.2f,%4.2f,%s\n",
+                        qe.getLocation().getLatitude(),
+                        qe.getLocation().getLongitude(),
+                        qe.getMagnitude(),qe.getInfo());
+        }
+        
+    }
+    
+    public void bigQuakes() {
+        EarthQuakeParser parser = new EarthQuakeParser();
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
         String source = "data/nov20quakedata.atom";
         ArrayList<QuakeEntry> list = parser.read(source);
@@ -55,7 +54,7 @@ public class EarthQuakeClient {
         for (QuakeEntry qe : listBig) {
            System.out.println(qe); 
         }
-	}
+    }
 	
     public void createCSV(){
         EarthQuakeParser parser = new EarthQuakeParser();
