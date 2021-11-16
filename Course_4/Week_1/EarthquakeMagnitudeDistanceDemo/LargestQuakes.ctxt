@@ -4,4 +4,6 @@ comment1.params=
 comment1.target=void\ findLargestQuakes()
 comment2.params=data
 comment2.target=int\ indexOfLargest(java.util.ArrayList)
-numComments=3
+comment3.params=quakeData\ howMany
+comment3.target=java.util.ArrayList\ getLargest(java.util.ArrayList,\ int)
+numComments=4
