@@ -43,7 +43,7 @@ public class EarthQuakeClient {
         //TODO
         if (where.equals("start")){
             for (QuakeEntry qe : quakeData) {
-                if (qe.getInfo().indexOf(phrase, phrase.length()) > -1 ) {
+                if (qe.getInfo().indexOf(phrase, 0) > -1 ) {
                     answer.add(qe);
                 }
             }
@@ -135,7 +135,7 @@ public class EarthQuakeClient {
         ArrayList<QuakeEntry> list = parser.read(source);
         System.out.println("read data for " + list.size() + " quakes");
         
-        String where = "end", phrase = "California";
+        String where = "start", phrase = "Explosion";
         ArrayList<QuakeEntry> listPhrase = filterByPhrase(list, where, phrase);
         for (QuakeEntry qe : listPhrase) {
            System.out.println(qe); 
