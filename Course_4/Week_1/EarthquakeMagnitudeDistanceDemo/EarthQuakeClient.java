@@ -135,7 +135,8 @@ public class EarthQuakeClient {
         ArrayList<QuakeEntry> list = parser.read(source);
         System.out.println("read data for " + list.size() + " quakes");
         
-        ArrayList<QuakeEntry> listPhrase = filterByPhrase(list, "end", "California");
+        String where = "end", phrase = "California";
+        ArrayList<QuakeEntry> listPhrase = filterByPhrase(list, where, phrase);
         for (QuakeEntry qe : listPhrase) {
            System.out.println(qe); 
         }
