@@ -43,7 +43,7 @@ public class EarthQuakeClient {
         //TODO
         if (where.equals("start")){
             for (QuakeEntry qe : quakeData) {
-                if (qe.getInfo().indexOf(phrase, 0) > -1 ) {
+                if (qe.getInfo().indexOf(phrase) == 0  ) {
                     answer.add(qe);
                 }
             }
@@ -121,7 +121,7 @@ public class EarthQuakeClient {
         ArrayList<QuakeEntry> list = parser.read(source);
         System.out.println("read data for " + list.size() + " quakes");
         
-        ArrayList<QuakeEntry> listDepth = filterByDepth(list, -10000.0, -5000.0);
+        ArrayList<QuakeEntry> listDepth = filterByDepth(list, -10000.0, -8000.0);
         for (QuakeEntry qe : listDepth) {
            System.out.println(qe); 
         }
@@ -131,7 +131,7 @@ public class EarthQuakeClient {
     public void quakesByPhrase(){
         EarthQuakeParser parser = new EarthQuakeParser();
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/nov20quakedatasmall.atom";
+        String source = "data/nov20quakedata.atom";
         ArrayList<QuakeEntry> list = parser.read(source);
         System.out.println("read data for " + list.size() + " quakes");
         
