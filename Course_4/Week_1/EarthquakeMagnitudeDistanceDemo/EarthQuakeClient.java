@@ -25,6 +25,21 @@ public class EarthQuakeClient {
         }
         return answer;
     }
+    
+    public ArrayList<QuakeEntry> filterByDepth(ArrayList<QuakeEntry> quakeData, double minDepth, double maxDepth) {      
+        ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
+        // TODO
+        for (QuakeEntry qe : quakeData) {
+            if (qe.getDepth() > minDepth && qe.getDepth() < maxDepth) {
+                answer.add(qe);
+            }
+        }
+        return answer;
+    }
+    
+    public void quakesOfDepth(){
+        
+    }
             
     public void dumpCSV(ArrayList<QuakeEntry> list){
         System.out.println("Latitude,Longitude,Magnitude,Info");
@@ -43,13 +58,7 @@ public class EarthQuakeClient {
         String source = "data/nov20quakedata.atom";
         ArrayList<QuakeEntry> list = parser.read(source);
         System.out.println("read data for " + list.size() + " quakes");
-        /*
-        for (QuakeEntry qe : list) {
-            if (qe.getMagnitude() > 5.0) {
-                System.out.println(qe);
-            }
-        }
-        */
+        
         ArrayList<QuakeEntry> listBig = filterByMagnitude(list, 5.0);
         for (QuakeEntry qe : listBig) {
            System.out.println(qe); 
