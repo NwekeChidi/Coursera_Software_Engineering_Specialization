@@ -2,6 +2,8 @@
 comment0.target=EarthQuakeClient
 comment1.params=quakeData\ magMin
 comment1.target=java.util.ArrayList\ filterByMagnitude(java.util.ArrayList,\ double)
+comment10.params=
+comment10.target=void\ quakesByPhrase()
 comment2.params=quakeData\ distMax\ from
 comment2.target=java.util.ArrayList\ filterByDistanceFrom(java.util.ArrayList,\ double,\ Location)
 comment3.params=quakeData\ minDepth\ maxDepth
@@ -18,4 +20,4 @@ comment8.params=
 comment8.target=void\ closeToMe()
 comment9.params=
 comment9.target=void\ quakesOfDepth()
-numComments=10
+numComments=11
