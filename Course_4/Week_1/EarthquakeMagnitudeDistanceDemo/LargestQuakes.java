@@ -19,8 +19,22 @@ public class LargestQuakes {
            System.out.println(qe); 
         }
         */
-        System.out.println("read data for " + list.size() + " quakes");
+        System.out.println("Read data for " + list.size() + " quakes");
+        int idxMaxDepth = indexOfLargest(list);
+        System.out.println("Index of earthquake with max depth: "+idxMaxDepth+ ", with magnitude: "
+                            +list.get(idxMaxDepth).getMagnitude());
     }
     
-    public
+    public int indexOfLargest(ArrayList<QuakeEntry> data){
+        int idx = 0, runIdx = 0;
+        double currMax = 0.0;
+        for (QuakeEntry qe : data) {
+            if (qe.getMagnitude() > currMax) {
+                idx = runIdx;
+                currMax = qe.getMagnitude();
+            }
+            runIdx++;
+        }
+        return idx;
+    }
 }

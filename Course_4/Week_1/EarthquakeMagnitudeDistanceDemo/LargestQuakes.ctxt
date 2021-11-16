@@ -2,4 +2,6 @@
 comment0.target=LargestQuakes
 comment1.params=
 comment1.target=void\ findLargestQuakes()
-numComments=2
+comment2.params=data
+comment2.target=int\ indexOfLargest(java.util.ArrayList)
+numComments=3
