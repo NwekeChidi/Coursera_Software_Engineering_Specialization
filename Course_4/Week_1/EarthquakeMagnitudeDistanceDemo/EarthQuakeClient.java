@@ -38,7 +38,30 @@ public class EarthQuakeClient {
         return answer;
     }
     
-    
+    public ArrayList<QuakeEntry> filterByPhrase(ArrayList<QuakeEntry> quakeData, String where, String phrase) {
+        ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
+        //TODO
+        if (where.equals("start")){
+            for (QuakeEntry qe : quakeData) {
+                if (qe.getInfo().indexOf(phrase, phrase.length()) > -1 ) {
+                    answer.add(qe);
+                }
+            }
+        } else if(where.equals("end")){
+            for (QuakeEntry qe : quakeData) {
+                if (qe.getInfo().lastIndexOf(phrase) > -1 ) {
+                    answer.add(qe);
+                }
+            }
+        } else {
+            for (QuakeEntry qe : quakeData) {
+                if (qe.getInfo().indexOf(phrase) > -1 ) {
+                    answer.add(qe);
+                }
+            }
+        }
+        return answer;              
+    }
             
     public void dumpCSV(ArrayList<QuakeEntry> list){
         System.out.println("Latitude,Longitude,Magnitude,Info");
