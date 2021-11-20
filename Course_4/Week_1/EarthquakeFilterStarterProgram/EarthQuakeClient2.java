@@ -71,6 +71,27 @@ public class EarthQuakeClient2 {
         }
     }
     
+    public void testMatchAllFilter2(){
+        EarthQuakeParser parser = new EarthQuakeParser(); 
+        //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
+        String source = "data/nov20quakedatasmall.atom";
+        ArrayList<QuakeEntry> list  = parser.read(source);         
+        System.out.println("read data for "+list.size()+" quakes\n");
+        
+        MatchAllFilter maf = new MatchAllFilter();
+        Location loc = new Location(36.1314, -95.9372);
+        double maxDist = 10000000;
+        Filter f1 = new MagnitudeFilter(0.0, 3.0), f2 = new DistanceFilter(loc, maxDist), f3 = new PhraseFilter("Ca", "any");
+        maf.addFilter(f1);
+        maf.addFilter(f2);
+        maf.addFilter(f3);
+        
+        ArrayList<QuakeEntry> m8 = filter(list, maf);
+        for (QuakeEntry qe : m8){
+            System.out.println(qe);
+        }
+    }
+    
     public void dumpCSV(ArrayList<QuakeEntry> list) {
         System.out.println("Latitude,Longitude,Magnitude,Info");
         for(QuakeEntry qe : list){
