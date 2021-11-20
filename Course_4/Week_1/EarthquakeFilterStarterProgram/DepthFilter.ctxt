@@ -5,4 +5,6 @@ comment1.params=min\ maxi
 comment1.target=DepthFilter(double,\ double)
 comment2.params=qe
 comment2.target=boolean\ satisfies(QuakeEntry)
-numComments=3
+comment3.params=
+comment3.target=java.lang.String\ getName()
+numComments=4

@@ -25,4 +25,8 @@ public class PhraseFilter implements Filter {
         }
         return check;
     }
+    
+    public String getName(){
+        return "Phrase Filter";
+    }
 }

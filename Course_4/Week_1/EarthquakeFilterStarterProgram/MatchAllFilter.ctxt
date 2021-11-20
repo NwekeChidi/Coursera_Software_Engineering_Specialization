@@ -6,4 +6,6 @@ comment2.params=filter
 comment2.target=void\ addFilter(Filter)
 comment3.params=qe
 comment3.target=boolean\ satisfies(QuakeEntry)
-numComments=4
+comment4.params=
+comment4.target=java.lang.String\ getName()
+numComments=5

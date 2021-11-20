@@ -28,4 +28,11 @@ public class MatchAllFilter implements Filter {
         return true;
     }
     
+    public String getName(){
+        System.out.println("\nFilters used are: ");
+        for ( Filter f : filters){
+            System.out.println(f.getName());
+        }
+        return null;
+    }
 }

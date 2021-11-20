@@ -5,4 +5,6 @@ comment1.params=phraseS\ whereF
 comment1.target=PhraseFilter(java.lang.String,\ java.lang.String)
 comment2.params=qe
 comment2.target=boolean\ satisfies(QuakeEntry)
-numComments=3
+comment3.params=
+comment3.target=java.lang.String\ getName()
+numComments=4
