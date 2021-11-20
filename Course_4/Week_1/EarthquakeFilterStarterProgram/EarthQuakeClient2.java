@@ -23,9 +23,20 @@ public class EarthQuakeClient2 {
         String source = "data/nov20quakedatasmall.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);         
         System.out.println("read data for "+list.size()+" quakes");
-
-        Filter f = new MinMagFilter(4.0); 
-        ArrayList<QuakeEntry> m7  = filter(list, f); 
+        
+        /*
+        Filter f1 = new MagnitudeFilter(4.0, 5.0); 
+        Filter f2 = new DepthFilter(-35000.0, -12000.0);
+        ArrayList<QuakeEntry> m7  = filter(filter(list, f1), f2);
+        */
+        
+        Location loc = new Location(35.42, 139.43);
+        String phrase = "Japan", where = "end";
+        double maxDist = 10000000;
+        Filter f1 = new DistanceFilter(loc, maxDist);
+        Filter f2 = new PhraseFilter(phrase, where);
+        ArrayList<QuakeEntry> m7 = filter(filter(list, f1), f2);
+        
         for (QuakeEntry qe: m7) { 
             System.out.println(qe);
         } 
