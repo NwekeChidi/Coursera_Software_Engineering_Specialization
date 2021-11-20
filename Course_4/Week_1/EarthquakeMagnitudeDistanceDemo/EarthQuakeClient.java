@@ -49,7 +49,8 @@ public class EarthQuakeClient {
             }
         } else if(where.equals("end")){
             for (QuakeEntry qe : quakeData) {
-                if (qe.getInfo().lastIndexOf(phrase) > -1 ) {
+                int toEnd = qe.getInfo().length() - 1;
+                if (qe.getInfo().lastIndexOf(phrase) == toEnd ) {
                     answer.add(qe);
                 }
             }
@@ -121,7 +122,7 @@ public class EarthQuakeClient {
         ArrayList<QuakeEntry> list = parser.read(source);
         System.out.println("read data for " + list.size() + " quakes");
         
-        ArrayList<QuakeEntry> listDepth = filterByDepth(list, -10000.0, -8000.0);
+        ArrayList<QuakeEntry> listDepth = filterByDepth(list, -4000.0, -2000.0);
         for (QuakeEntry qe : listDepth) {
            System.out.println(qe); 
         }
@@ -135,7 +136,7 @@ public class EarthQuakeClient {
         ArrayList<QuakeEntry> list = parser.read(source);
         System.out.println("read data for " + list.size() + " quakes");
         
-        String where = "start", phrase = "Explosion";
+        String where = "any", phrase = "Can";
         ArrayList<QuakeEntry> listPhrase = filterByPhrase(list, where, phrase);
         for (QuakeEntry qe : listPhrase) {
            System.out.println(qe); 

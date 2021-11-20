@@ -16,30 +16,38 @@ public class EarthQuakeClient2 {
         
         return answer;
     } 
+    
+    public void getMatchSize(ArrayList<QuakeEntry> m){
+        System.out.println("\nFound "+m.size()+" quakes that match filtering criteria");
+    }
 
     public void quakesWithFilter() { 
         EarthQuakeParser parser = new EarthQuakeParser(); 
-        //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/nov20quakedatasmall.atom";
+        String source = "data/nov20quakedata.atom";
+        //String source = "data/nov20quakedatasmall.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);         
         System.out.println("read data for "+list.size()+" quakes");
         
         /*
-        Filter f1 = new MagnitudeFilter(4.0, 5.0); 
-        Filter f2 = new DepthFilter(-35000.0, -12000.0);
+        Filter f1 = new MagnitudeFilter(3.5, 4.5, "Magnitude"); 
+        Filter f2 = new DepthFilter(-55000.0, -20000.0, "Depth");
         ArrayList<QuakeEntry> m7  = filter(filter(list, f1), f2);
         */
+        
         
         Location loc = new Location(35.42, 139.43);
         String phrase = "Japan", where = "end";
         double maxDist = 10000000;
-        Filter f1 = new DistanceFilter(loc, maxDist);
-        Filter f2 = new PhraseFilter(phrase, where);
+        Filter f2 = new DistanceFilter(loc, maxDist, "Distance");
+        Filter f1 = new PhraseFilter(phrase, where, "Phrase");
         ArrayList<QuakeEntry> m7 = filter(filter(list, f1), f2);
+        
         
         for (QuakeEntry qe: m7) { 
             System.out.println(qe);
-        } 
+        }
+        
+        getMatchSize(m7);
     }
 
     public void createCSV() {
@@ -54,13 +62,13 @@ public class EarthQuakeClient2 {
     
     public void testMatchAllFilter(){
         EarthQuakeParser parser = new EarthQuakeParser(); 
-        //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/nov20quakedatasmall.atom";
+        String source = "data/nov20quakedata.atom";
+        //String source = "data/nov20quakedatasmall.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);         
         System.out.println("read data for "+list.size()+" quakes\n");
         
         MatchAllFilter maf = new MatchAllFilter();
-        Filter f1 = new MagnitudeFilter(0.0, 2.0), f2 = new DepthFilter(-100000.0, -10000.0), f3 = new PhraseFilter("a", "any");
+        Filter f1 = new MagnitudeFilter(1.0, 4.0, "Magnitude"), f2 = new DepthFilter(-180000.0, -30000.0, "Depth"), f3 = new PhraseFilter("o", "any", "Phrase");
         maf.addFilter(f1);
         maf.addFilter(f2);
         maf.addFilter(f3);
@@ -69,21 +77,21 @@ public class EarthQuakeClient2 {
         for (QuakeEntry qe : m8){
             System.out.println(qe);
         }
-        
+        getMatchSize(m8);
         maf.getName();
     }
     
     public void testMatchAllFilter2(){
         EarthQuakeParser parser = new EarthQuakeParser(); 
-        //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/nov20quakedatasmall.atom";
+        String source = "data/nov20quakedata.atom";
+        //String source = "data/nov20quakedatasmall.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);         
         System.out.println("read data for "+list.size()+" quakes\n");
         
         MatchAllFilter maf = new MatchAllFilter();
-        Location loc = new Location(36.1314, -95.9372);
-        double maxDist = 10000000;
-        Filter f1 = new MagnitudeFilter(0.0, 3.0), f2 = new DistanceFilter(loc, maxDist), f3 = new PhraseFilter("Ca", "any");
+        Location loc = new Location(55.7308, 9.1153);
+        double maxDist = 3000000;
+        Filter f1 = new MagnitudeFilter(0.0, 5.0, "Magnitude"), f2 = new DistanceFilter(loc, maxDist, "Distance"), f3 = new PhraseFilter("e", "any", "Phrase");
         maf.addFilter(f1);
         maf.addFilter(f2);
         maf.addFilter(f3);
@@ -92,6 +100,9 @@ public class EarthQuakeClient2 {
         for (QuakeEntry qe : m8){
             System.out.println(qe);
         }
+        
+        getMatchSize(m8);
+        maf.getName();
     }
     
     public void dumpCSV(ArrayList<QuakeEntry> list) {

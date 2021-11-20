@@ -7,11 +7,12 @@
  */
 public class PhraseFilter implements Filter {
     
-    private String where, phrase;
+    private String where, phrase, name;
     
-    public PhraseFilter(String phraseS, String whereF){
+    public PhraseFilter(String phraseS, String whereF, String title){
         where = whereF;
         phrase = phraseS;
+        name = title;
     }
     
     public boolean satisfies(QuakeEntry qe){
@@ -19,7 +20,8 @@ public class PhraseFilter implements Filter {
         if (where.equals("start")){
             check = qe.getInfo().indexOf(phrase) == 0;
         } else if (where.equals("end")){
-            check = qe.getInfo().lastIndexOf(phrase) > -1;
+            int toEnd = qe.getInfo().length()-phrase.length();
+            check = qe.getInfo().lastIndexOf(phrase) == toEnd;
         } else {
             check = qe.getInfo().indexOf(phrase) > -1;
         }
@@ -27,6 +29,6 @@ public class PhraseFilter implements Filter {
     }
     
     public String getName(){
-        return "Phrase Filter";
+        return name;
     }
 }

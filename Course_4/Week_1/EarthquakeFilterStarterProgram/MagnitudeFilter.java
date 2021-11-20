@@ -8,10 +8,12 @@
 public class MagnitudeFilter implements Filter {
     
     private double minMag, maxMag;
+    private String name;
     
-    public MagnitudeFilter(double min, double maxi){
+    public MagnitudeFilter(double min, double maxi, String title){
         minMag = min;
         maxMag = maxi;
+        name = title;
     }
     
     public boolean satisfies(QuakeEntry qe){
@@ -19,6 +21,6 @@ public class MagnitudeFilter implements Filter {
     }
     
     public String getName(){
-        return "Magnitude Filter";
+        return name;
     }
 }

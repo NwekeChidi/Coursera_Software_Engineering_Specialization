@@ -7,10 +7,12 @@
  */
 public class DepthFilter implements Filter {
     private double minDepth, maxDepth;
+    private String name;
     
-    public DepthFilter(double min, double maxi){
+    public DepthFilter(double min, double maxi, String title){
         minDepth = min;
         maxDepth = maxi;
+        name = title;
     }
     
     public boolean satisfies(QuakeEntry qe){
@@ -18,6 +20,6 @@ public class DepthFilter implements Filter {
     }
     
     public String getName(){
-        return "Depth Filter";
+        return name;
     }
 }

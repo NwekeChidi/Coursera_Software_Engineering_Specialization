@@ -8,10 +8,12 @@
 public class DistanceFilter implements Filter {
     private double maxDist;
     private Location loc;
+    private String name;
     
-    public DistanceFilter(Location location, double maxi){
+    public DistanceFilter(Location location, double maxi, String title){
         loc = location;
         maxDist = maxi;
+        name = title;
     }
     
     public boolean satisfies(QuakeEntry qe){
@@ -19,6 +21,6 @@ public class DistanceFilter implements Filter {
     }
     
     public String getName(){
-        return "Distance Filter";
+        return name;
     }
 }

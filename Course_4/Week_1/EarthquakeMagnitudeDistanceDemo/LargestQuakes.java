@@ -20,7 +20,7 @@ public class LargestQuakes {
         }
         */
         System.out.println("Read data for " + list.size() + " quakes");
-        int idxMaxDepth = indexOfLargest(list), howMany = 5;
+        int idxMaxDepth = indexOfLargest(list), howMany = 50;
         System.out.println("Index of earthquake with max depth: "+idxMaxDepth+ ", with magnitude: "
                             +list.get(idxMaxDepth).getMagnitude());
         System.out.println("\nThe first "+howMany+" largest quakes in file are:");
